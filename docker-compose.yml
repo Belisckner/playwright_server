@@ -1,0 +1,18 @@
+version: "3"
+services:
+  chromium-browser:
+    image: mcr.microsoft.com/playwright:v1.56.1-noble # Use a specific version tag
+    network_mode: host
+    expose:
+      - "12000/tcp"
+    volumes:
+      - .:/work
+    working_dir: /work
+    command: >
+      /bin/bash -c "
+        npm install && 
+        npx ts-node serverLaunch.ts
+      "
+    # stdin_open: true  # эквивалент -i
+    # tty: true         # эквивалент -t
+    restart: unless-stopped  # опционально: перезапуск при падении
