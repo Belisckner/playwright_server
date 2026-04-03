@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npx ts-node serverLaunch.ts",
-    "start:docker": "docker run --rm --network host --expose 12000/tcp -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.56.1-noble /bin/bash -c 'npm install && npx ts-node serverLaunch.ts'"
+    "start:docker-compose": "docker compose up -d"
   },
   "author": "",
   "license": "ISC",
